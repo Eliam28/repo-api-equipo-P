@@ -15,6 +15,17 @@ def get_woocommerce_customers():
         if not customers:
             return {"message": "No hay clientes registrados"}
         
-        return customers
+        list_customers = []
+
+        for customer in customers:
+            list_customers.append({
+            "id": customer["id"],
+            "email": customer["email"],
+            "first_name": customer["first_name"],
+            "last_name": customer["last_name"],
+            "userame":customer["username"]
+            })
+
+        return list_customers
 
     raise HTTPException(status_code=response.status_code,detail=response.text)
