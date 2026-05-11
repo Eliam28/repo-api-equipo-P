@@ -48,11 +48,11 @@ def get_woocommerce_customer_by_id(customer_id: int):
         return {"message": f"No existe un cliente con el ID {customer_id}"}
 
     raise HTTPException(status_code=response.status_code, detail=response.text)
+
 @router.post("/")
 async def create_woocommerce_customer(customer: CustomerCreate):
     customer_data = customer.model_dump() 
     
-
     response = wcapi.post("customers", customer_data)
 
     if response.status_code == 201:

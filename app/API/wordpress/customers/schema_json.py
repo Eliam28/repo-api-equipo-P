@@ -12,6 +12,7 @@ class Address(BaseModel):
 
 class CustomerCreate(BaseModel):
     email: EmailStr
+    username: str
     first_name: str
     last_name: str
     billing: Optional[Address] = None
